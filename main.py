@@ -1,7 +1,11 @@
 import boto3
+
 from functions.create_instance import create_instance_for_aws
 from functions.delete_instance import delete_all_instances_for_aws
 from functions.create_database import create_database_for_aws
+from functions.create_security_group import create_security_group_for_aws
+from functions.delete_all_security_groups import delete_all_security_groups_for_aws
+from functions.read_command import read_command
 
 #AWS KEYS 
 KEY_NAME='fernandocfbf'
@@ -27,8 +31,15 @@ ohio_waiter_terminate = ohio_client.get_waiter('instance_terminated')
 # DELETING ALL INSTANCES ---------------------------------------------
 delete_all_instances_for_aws(ohio_client, ohio_waiter_terminate)
 
-# CRIANDO BANCO DE DADOS ---------------------------------------------
+# DELETING ALL SECURITY GROUPS ---------------------------------------------
+delete_all_security_groups_for_aws(ohio_client)
+
+# CREATING SECURITY GROUPS ---------------------------------------------
+postgres_database_protocols = read_command('protocols', 'database_security_group.txt', is_json=True)
+ohio_security_group = create_security_group_for_aws('database', OHIO_REGION, 'enable ports', 'postgres_database', postgres_database_protocols)
+
+# CREATING DATABASE ---------------------------------------------
 postgres, postgres_id = create_database_for_aws(POSTGRES_NAME, POSTGRES_REGION, POSTGRES_IMAGE_ID, POSTGRES_INSTANCE_TYPE, POSTGRES_SECURITY_GROUP, KEY_NAME)
 
-# CRIANDO INSTÂNCIAS ---------------------------------------------
+# CREATING INSTANCES ---------------------------------------------
 ohio_instance, ohio_instance_ip = create_instance_for_aws(OHIO_NAME, OHIO_REGION, OHIO_IMAGE_ID, OHIO_INSTANCE_TYPE, OHIO_SECURITY_GROUP, KEY_NAME)
