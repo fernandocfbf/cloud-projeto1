@@ -11,11 +11,11 @@ def delete_all_instances_for_aws(ec2, waiter):
                 if (sub_instance["State"]["Code"] == (0 or 16 or 80)):
                     ids_to_delete.append(sub_instance['InstanceId'])
         if len(ids_to_delete) > 0:
-            create_log("Deleting all instances...")
+            create_log("Deleting all instances ({0})...".format(ec2.meta.region_name))
             ec2.terminate_instances(InstanceIds=ids_to_delete)
             waiter.wait(InstanceIds=ids_to_delete)
             create_log("All instances deleted!")
         else:
-            create_log("There are no instances to delete!")
+            create_log("There are no instances to delete! ({0})".format(ec2.meta.region_name))
     except NameError as e:
         create_log(e)

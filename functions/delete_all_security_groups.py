@@ -2,7 +2,7 @@ from functions.create_log import create_log
 
 def delete_all_security_groups_for_aws(ec2):
     try:
-        create_log('Deleting all security groups...')
+        create_log('Deleting all security groups ({0})...'.format(ec2.meta.region_name))
         current_security_groups = ec2.describe_security_groups()
         for security_group in current_security_groups["SecurityGroups"]:
             if security_group['GroupName'] != 'default':
