@@ -6,23 +6,7 @@ from functions.create_database import create_database_for_aws
 from functions.create_security_group import create_security_group_for_aws
 from functions.delete_all_security_groups import delete_all_security_groups_for_aws
 from functions.read_command import read_command
-
-# AWS KEYS ---------------------------------------------
-KEY_NAME = 'fernandocfbf'
-
-# NORTH VIRGINIA INSTANCE CONFIG ---------------------------------------------
-NORTH_VIRGINIA_NAME = 'North-Virigina-f'
-NORTH_VIRGINIA_REGION = 'us-east-1'
-NORTH_VIRGINIA_IMAGE_ID = 'ami-0279c3b3186e54acd'
-NORTH_VIRGINIA_INSTANCE_TYPE = 't2.micro'
-NORTH_VIRGINIA_SECURITY_GROUP = 'test'
-
-# POSTGRES INSTANCE CONFIG ---------------------------------------------
-POSTGRES_NAME = 'Postgres-f'
-POSTGRES_REGION = 'us-east-2'
-POSTGRES_IMAGE_ID = 'ami-020db2c14939a8efb'
-POSTGRES_INSTANCE_TYPE = 't2.micro'
-POSTGRES_SECURITY_GROUP = 'database'
+from constants import *
 
 # CLIENTS AND WAITERS ---------------------------------------------
 ohio_client = boto3.client('ec2', region_name=POSTGRES_REGION)
@@ -66,7 +50,8 @@ postgres, postgres_id = create_database_for_aws(
     KEY_NAME)
 
 # CREATING DJANGO ---------------------------------------------
-django_user_data = read_command('commands', 'install_django.sh')
+django_user_data = read_command('commands', 'install_django.sh').replace(
+    "s/node1/postgres_ip/g", f"s/node1/{postgres_id}/g", 1)
 django, django_ip = create_instance_for_aws(
     NORTH_VIRGINIA_NAME,
     NORTH_VIRGINIA_REGION,
