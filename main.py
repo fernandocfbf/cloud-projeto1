@@ -57,8 +57,7 @@ postgres, postgres_ip, postgres_id = create_database_for_aws(
     KEY_NAME)
 
 # CREATING DJANGO ---------------------------------------------
-django_user_data = read_command('commands', 'install_django.sh').replace(
-    "s/node1/postgres_ip/g", f"s/node1/{postgres_ip}/g", 1)
+django_user_data = read_command('commands', 'install_django.sh').replace("s/node1/postgres_ip/g", f"s/node1/{postgres_ip}/g", 1)
 django, django_ip, django_id = create_instance_for_aws(
     NORTH_VIRGINIA_NAME,
     NORTH_VIRGINIA_REGION,
@@ -68,8 +67,9 @@ django, django_ip, django_id = create_instance_for_aws(
     KEY_NAME,
     user_data=django_user_data)
 
-# CREATING AMI
-ami_django, ami_django_id = create_AMI_for_aws(
-    north_virginia_client, 'django_ami', django_id, north_virginia_waiter_ami)
+# CREATING AMI ---------------------------------------------
+ami_django, ami_django_id = create_AMI_for_aws(north_virginia_client, 'django_ami', django_id, north_virginia_waiter_ami)
 
+# DELETING DJANGO ---------------------------------------------
+delete_all_instances_for_aws(north_virginia_client, north_virginia_waiter_terminate)
 
