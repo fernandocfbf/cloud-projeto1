@@ -23,7 +23,7 @@ def create_instance_for_aws(instance_name, region, image_id, instance_type, secu
         instance[0].wait_until_running()
         instance[0].reload()
         create_log("Instance {0} created!".format(instance_name))
-        return instance, instance[0].public_ip_address
+        return instance, instance[0].public_ip_address, instance[0].instance_id
     except NameError as e:
         create_log(e)
         return
