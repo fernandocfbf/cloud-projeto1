@@ -1,8 +1,8 @@
 import boto3
 from botocore.config import Config
-from functions.create_instance import create_instance_for_aws
-from functions.read_command import read_command
-from functions.create_log import create_log
+from functions.instances.create_instance import create_instance_for_aws
+from functions.utils.read_command import read_command
+from functions.utils.create_log import create_log
 
 def create_database_for_aws(instance_name, region, image_id, instance_type, security_group, key_name):
     commands = read_command('commands','install_postgres.sh')

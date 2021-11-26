@@ -1,4 +1,4 @@
-from functions.create_log import create_log
+from functions.utils.create_log import create_log
 
 def delete_all_security_groups_for_aws(ec2):
     try:

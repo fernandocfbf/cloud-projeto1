@@ -1,4 +1,4 @@
-from functions.create_log import create_log
+from functions.utils.create_log import create_log
 
 def delete_all_AMIs_for_aws(ec2):
     try:
@@ -7,7 +7,7 @@ def delete_all_AMIs_for_aws(ec2):
             create_log('Deleting all images ({0})...'.format(ec2.meta.region_name))
             for image in current_images['Images']:
                 ec2.deregister_image(ImageId=image['ImageId'])
-            create_log('All images deleted ({0})...'.format(ec2.meta.region_name))
+            create_log('All images deleted! ({0})'.format(ec2.meta.region_name))
         else:
             create_log("There are no AMIs to delete! ({0})".format(
                 ec2.meta.region_name))

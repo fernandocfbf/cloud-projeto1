@@ -1,6 +1,6 @@
 import boto3
 from botocore.config import Config
-from functions.create_log import create_log
+from functions.utils.create_log import create_log
 
 def delete_all_instances_for_aws(ec2, waiter):
     try:

@@ -1,7 +1,7 @@
 import boto3
 from botocore.config import Config
 
-from functions.create_log import create_log
+from functions.utils.create_log import create_log
 
 def create_security_group_for_aws(group_name, region, description, tag_name, ports_and_protocols):
     try:

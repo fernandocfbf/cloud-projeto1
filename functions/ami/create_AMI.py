@@ -1,4 +1,4 @@
-from functions.create_log import create_log
+from functions.utils.create_log import create_log
 
 def create_AMI_for_aws(ec2, ami_name, instance_id, waiter):
     try:

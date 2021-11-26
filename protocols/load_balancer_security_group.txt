@@ -2,7 +2,7 @@
     {
         "protocol": "tcp",
         "CidrIp": "0.0.0.0/0",
-        "FromPort": 22,
-        "ToPort": 22
+        "FromPort": 80,
+        "ToPort": 80
     }
 ]

@@ -1,6 +1,6 @@
 import boto3
 from botocore.config import Config
-from functions.create_log import create_log
+from functions.utils.create_log import create_log
 
 def create_instance_for_aws(instance_name, region, image_id, instance_type, security_group, key_name, user_data=None):
     try:
