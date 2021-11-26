@@ -16,3 +16,12 @@ POSTGRES_IMAGE_ID = 'ami-020db2c14939a8efb'
 POSTGRES_INSTANCE_TYPE = 't2.micro'
 POSTGRES_SECURITY_GROUP = 'database'
 
+# LOAD BALANCER TARGET GROUP ---------------------------------------------
+TARGET_GROUP_NAME = 'load-balancer-target-group'
+PROTOCOL = 'HTTP'
+HEALTH_CHECK_ENABLED = True
+HEALTH_CHECK_PROTOCOL = 'HTTP'
+HEALTH_CHECK_PORT = '8080'
+HEALTH_CHECK_PATH = '/admin/'
+PORT = 8080
+TARGET_TYPE = 'instance'
