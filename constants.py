@@ -17,11 +17,27 @@ POSTGRES_INSTANCE_TYPE = 't2.micro'
 POSTGRES_SECURITY_GROUP = 'database'
 
 # LOAD BALANCER TARGET GROUP ---------------------------------------------
-TARGET_GROUP_NAME = 'load-balancer-target-group'
-PROTOCOL = 'HTTP'
-HEALTH_CHECK_ENABLED = True
-HEALTH_CHECK_PROTOCOL = 'HTTP'
-HEALTH_CHECK_PORT = '8080'
-HEALTH_CHECK_PATH = '/admin/'
-PORT = 8080
-TARGET_TYPE = 'instance'
+LB_TARGET_GROUP_NAME = 'load-balancer-target-group'
+LB_PROTOCOL = 'HTTP'
+LB_HEALTH_CHECK_ENABLED = True
+LB_HEALTH_CHECK_PROTOCOL = 'HTTP'
+LB_HEALTH_CHECK_PORT = '8080'
+LB_HEALTH_CHECK_PATH = '/admin/'
+LB_PORT = 8080
+LB_TARGET_TYPE = 'instance'
+
+# LAUNCH CONFIGURATION ---------------------------------------------
+LC_NAME = 'launch_configuration'
+LC_INSTANCE_TYPE = 't2.micro'
+
+# AUTOSCALLING ---------------------------------------------
+AT_GROUP_NAME = 'auto-scalling'
+AT_LAUNCH_CONFIGURATION_NAME = LC_NAME
+AT_MIN_SIZE = 1
+AT_MAX_SIZE = 3
+
+# LISTENER ---------------------------------------------
+LT_PROTOCOL = 'HTTP'
+LT_PORT = 80
+LT_DEFAULT_ACTIONS_TYPE = 'forward'
+
