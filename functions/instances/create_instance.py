@@ -1,8 +1,11 @@
 import boto3
 from botocore.config import Config
+import time
+
 from functions.utils.create_log import create_log
 
-def create_instance_for_aws(instance_name, region, image_id, instance_type, security_group, key_name, user_data=None):
+
+def create_instance_for_aws(instance_name, region, image_id, instance_type, security_group, key_name, user_data=None, sleep=False, duration=150):
     try:
         instance_region = Config(region_name=region)
         ec2 = boto3.resource('ec2', config=instance_region)
@@ -21,6 +24,10 @@ def create_instance_for_aws(instance_name, region, image_id, instance_type, secu
                 TagSpecifications=[{ "ResourceType": "instance", "Tags": [{"Key": "Name", "Value": instance_name}]}],
             )
         instance[0].wait_until_running()
+        if sleep:
+            create_log('Sleep starting... ({0})'.format(duration))
+            time.sleep(duration)
+            create_log('Sleep ended')
         instance[0].reload()
         create_log("Instance {0} created!".format(instance_name))
         return instance, instance[0].public_ip_address, instance[0].instance_id

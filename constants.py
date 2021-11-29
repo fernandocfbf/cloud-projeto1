@@ -6,7 +6,7 @@ NORTH_VIRGINIA_NAME = 'North-Virigina-f'
 NORTH_VIRGINIA_REGION = 'us-east-1'
 NORTH_VIRGINIA_IMAGE_ID = 'ami-0279c3b3186e54acd'
 NORTH_VIRGINIA_INSTANCE_TYPE = 't2.micro'
-NORTH_VIRGINIA_SECURITY_GROUP = 'test'
+NORTH_VIRGINIA_SECURITY_GROUP = 'django-security-group'
 NORTH_VIRGINIA_SECURITY_GROUP_LD = 'load-balancer'
 
 # POSTGRES INSTANCE CONFIG ---------------------------------------------

@@ -48,8 +48,8 @@ initialize_log_file('log.txt')
 delete_all_load_balancer_for_aws(load_balancer_client, load_balancer_waiter_delete)
 
 # DELETING ALL INSTANCES ---------------------------------------------
-delete_all_instances_for_aws(ohio_client, ohio_waiter_terminate)
 delete_all_instances_for_aws(north_virginia_client, north_virginia_waiter_terminate)
+delete_all_instances_for_aws(ohio_client, ohio_waiter_terminate)
 
 # DELETING ALL AMIs ---------------------------------------------
 delete_all_AMIs_for_aws(north_virginia_client)
@@ -111,7 +111,9 @@ django, django_ip, django_id = create_instance_for_aws(
    NORTH_VIRGINIA_INSTANCE_TYPE,
    django_security_group,
    KEY_NAME,
-   user_data=django_user_data)
+   user_data=django_user_data,
+   sleep=True
+   )
 
 # CREATING AMI ---------------------------------------------
 ami_django, ami_django_id = create_AMI_for_aws(north_virginia_client, 'django-ami', django_id, north_virginia_waiter_ami)
