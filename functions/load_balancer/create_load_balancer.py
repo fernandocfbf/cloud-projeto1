@@ -1,4 +1,3 @@
-from json import load
 from functions.utils.create_log import create_log
 from functions.subnets.describe_subnets import describe_subnets_for_aws
 

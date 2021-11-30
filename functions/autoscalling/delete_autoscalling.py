@@ -9,5 +9,5 @@ def delete_autoscalling_for_aws(autoscalling_name, client):
             ForceDelete=True
         )
         create_log('Autoscalling {0} deleted!'.format(client.meta.region_name))
-    except NameError as e:
-        create_log(e)
+    except:
+        pass

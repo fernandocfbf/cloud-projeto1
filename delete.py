@@ -15,6 +15,7 @@ from functions.ami.delete_all_AMIs import delete_all_AMIs_for_aws
 from functions.target_groups.create_target_group import create_target_group_for_aws
 from functions.target_groups.delete_target_group import delete_target_groups_for_aws
 
+from functions.utils.initialize_log_file import initialize_log_file
 from functions.utils.read_command import read_command
 from constants import *
 
@@ -32,12 +33,15 @@ load_balancer_waiter_delete = load_balancer_client.get_waiter('load_balancers_de
 
 auto_scalling_client = boto3.client('autoscaling', region_name=NORTH_VIRGINIA_REGION)
 
+# INITIALIZE LOG FILE ---------------------------------------------
+initialize_log_file('log.txt')
+
 # DELETING ALL LOAD BALANCERS ---------------------------------------------
 delete_all_load_balancer_for_aws(load_balancer_client, load_balancer_waiter_delete)
 
 # DELETING ALL INSTANCES ---------------------------------------------
-delete_all_instances_for_aws(ohio_client, ohio_waiter_terminate)
 delete_all_instances_for_aws(north_virginia_client, north_virginia_waiter_terminate)
+delete_all_instances_for_aws(ohio_client, ohio_waiter_terminate)
 
 # DELETING ALL AMIs ---------------------------------------------
 delete_all_AMIs_for_aws(north_virginia_client)
