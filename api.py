@@ -1,32 +1,25 @@
 from datetime import datetime
 
-from requests.sessions import merge_hooks
-
+import json
 from functions.utils.create_log import create_log
 from endpoints import tasks
 
+dns = input('url: ')
+url = "http://" + dns
 method = input('GET/POST/DELETE: ')
-if method == '':
-    create_log('Closing API')   
-    quit()
-if method.lower() == 'get':
-    url = input('url: ')
-    tasks.get(url)
-elif method.lower() == 'post':
-    url = input('url: ')
-    if url.split('/')[3] == 'users':
-        username = input('username: ')
-        email = input('email: ')
-        #groups = input('groups: ')
-        dictionaty = {"username": username, "email": email}
-        print(dictionaty)
-        tasks.post(url, dictionaty)
-    elif url.split('/')[3] == 'groups':
-        name = input('name: ')
-        dictionaty = {"name": name}
-        tasks.post(url, dictionaty, end='groups')
-    else:
-        create_log('Closing API')   
-    
 
-    
+if method.lower() == 'get':
+    tasks.get(url)
+
+elif method.lower() == 'post':
+    str_body = input('Body: ')
+    json_body = json.loads(str_body)
+    endpoint = url.split('/')[3]
+    tasks.post(url, json_body, end=endpoint)
+
+elif method.lower() == 'delete':
+    id_ = input('id: ')
+    tasks.delete(url, id_)
+
+else:
+    create_log('Closing API')
