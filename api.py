@@ -14,10 +14,19 @@ if method.lower() == 'get':
     tasks.get(url)
 elif method.lower() == 'post':
     url = input('url: ')
-    title = input('title: ')
-    date = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
-    description = input('description: ')
-    dictionaty = {'title': title, 'date': date, 'description': description}
-    tasks.post(url, dictionaty)
+    if url.split('/')[3] == 'users':
+        username = input('username: ')
+        email = input('email: ')
+        #groups = input('groups: ')
+        dictionaty = {"username": username, "email": email}
+        print(dictionaty)
+        tasks.post(url, dictionaty)
+    elif url.split('/')[3] == 'groups':
+        name = input('name: ')
+        dictionaty = {"name": name}
+        tasks.post(url, dictionaty, end='groups')
+    else:
+        create_log('Closing API')   
+    
 
     

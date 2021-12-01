@@ -1,57 +1,74 @@
-[30/11/2021 20:11:27]: Deleting all loadbalancers...
-[30/11/2021 20:11:27]: All loadbalancers deleted!
-[30/11/2021 20:11:32]: Deleting all autoscalling... (us-east-1)
-[30/11/2021 20:11:44]: Autoscalling us-east-1 deleted!
-[30/11/2021 20:11:49]: Deleting launch condiguration launch_configuration...
-[30/11/2021 20:11:50]: Launch condiguration launch_configuration deleted!
-[30/11/2021 20:12:07]: Deleting all images (us-east-1)...
-[30/11/2021 20:12:07]: All images deleted! (us-east-1)
-[30/11/2021 20:12:12]: There are no instances to delete! (us-east-1)
-[30/11/2021 20:12:24]: Deleting all instances (us-east-2)...
-[30/11/2021 20:14:42]: All instances deleted!
-[30/11/2021 20:14:47]: Deleting target group load-balancer-target-group...
-[30/11/2021 20:14:59]: Target group load-balancer-target-group deleted!
-[30/11/2021 20:15:04]: Deleting all security groups (us-east-2)...
-[30/11/2021 20:15:05]: All security groups deleted!
-[30/11/2021 20:15:05]: Deleting all security groups (us-east-1)...
-[30/11/2021 20:15:18]: All security groups deleted!
-[30/11/2021 20:15:23]: Creating security group database...
-[30/11/2021 20:15:24]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 22, ToPort: 22
-[30/11/2021 20:15:24]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 5432, ToPort: 5432
-[30/11/2021 20:15:25]: Security group database created!
-[30/11/2021 20:15:25]: Creating security group django-security-group...
-[30/11/2021 20:15:27]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 22, ToPort: 22
-[30/11/2021 20:15:28]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 8080, ToPort: 8080
-[30/11/2021 20:15:29]: Security group django-security-group created!
-[30/11/2021 20:15:29]: Creating security group load-balancer...
-[30/11/2021 20:15:29]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 80, ToPort: 80
-[30/11/2021 20:15:30]: Security group load-balancer created!
-[30/11/2021 20:15:35]: Creating instance Postgres-f...
-[30/11/2021 20:16:08]: Instance Postgres-f created!
-[30/11/2021 20:16:08]: Database created with postgres!
-[30/11/2021 20:16:08]: Creating instance North-Virigina-f...
-[30/11/2021 20:16:57]: Sleep starting... (150)
-[30/11/2021 20:19:27]: Sleep ended
-[30/11/2021 20:19:35]: Instance North-Virigina-f created!
-[30/11/2021 20:19:40]: Creating AMI django-ami...
-[30/11/2021 20:24:18]: AMI django-ami created!
-[30/11/2021 20:24:19]: Deleting all instances (us-east-1)...
-[30/11/2021 20:24:50]: All instances deleted!
-[30/11/2021 20:24:51]: Creating target group load-balancer-target-group...
-[30/11/2021 20:24:52]: Target group load-balancer-target-group created
-[30/11/2021 20:24:52]: Creating loadbalancer load-balancer-north-viriginia
-[30/11/2021 20:26:40]: Loadbalancer load-balancer-north-viriginia created!
-[30/11/2021 20:26:40]: Creating launch_configuration launch configuration
-[30/11/2021 20:26:52]: Launch configuration launch_configuration created!
-[30/11/2021 20:26:52]: Creating autoscalling auto-scalling...
-[30/11/2021 20:26:53]: Autoscalling auto-scalling created!
-[30/11/2021 20:26:53]: Creating listener...
-[30/11/2021 20:26:53]: Listener created!
-[30/11/2021 20:29:05]: POST http://load-balancer-north-viriginia-902678895.us-east-1.elb.amazonaws.com/tasks
-[30/11/2021 20:29:06]: POST response <Response [500]>
-[30/11/2021 20:29:23]: POST http://load-balancer-north-viriginia-902678895.us-east-1.elb.amazonaws.com/tasks/
-[30/11/2021 20:29:35]: POST response <Response [405]>
-[30/11/2021 20:30:20]: POST http://load-balancer-north-viriginia-902678895.us-east-1.elb.amazonaws.com/admin/tasks/task/add
-[30/11/2021 20:30:20]: POST response <Response [403]>
-[30/11/2021 20:36:19]: POST http://load-balancer-north-viriginia-902678895.us-east-1.elb.amazonaws.com/tasks/task/add
-[30/11/2021 20:36:20]: POST response <Response [404]>
+[01/12/2021 10:57:55]: Deleting all loadbalancers...
+[01/12/2021 10:57:55]: All loadbalancers deleted!
+[01/12/2021 10:58:00]: Deleting all autoscalling... (us-east-1)
+[01/12/2021 10:58:01]: Autoscalling us-east-1 deleted!
+[01/12/2021 10:58:06]: Deleting launch condiguration launch_configuration...
+[01/12/2021 10:58:07]: Launch condiguration launch_configuration deleted!
+[01/12/2021 10:58:13]: Deleting all images (us-east-1)...
+[01/12/2021 10:58:13]: All images deleted! (us-east-1)
+[01/12/2021 10:58:19]: Deleting all instances (us-east-1)...
+[01/12/2021 10:59:06]: All instances deleted!
+[01/12/2021 10:59:07]: Deleting all instances (us-east-2)...
+[01/12/2021 10:59:38]: All instances deleted!
+[01/12/2021 10:59:43]: Deleting target group load-balancer-target-group...
+[01/12/2021 10:59:45]: Target group load-balancer-target-group deleted!
+[01/12/2021 10:59:50]: Deleting all security groups (us-east-2)...
+[01/12/2021 10:59:50]: All security groups deleted!
+[01/12/2021 10:59:50]: Deleting all security groups (us-east-1)...
+[01/12/2021 10:59:52]: All security groups deleted!
+[01/12/2021 10:59:57]: Creating security group database...
+[01/12/2021 10:59:58]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 22, ToPort: 22
+[01/12/2021 10:59:58]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 5432, ToPort: 5432
+[01/12/2021 10:59:59]: Security group database created!
+[01/12/2021 10:59:59]: Creating security group django-security-group...
+[01/12/2021 11:00:00]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 22, ToPort: 22
+[01/12/2021 11:00:01]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 8080, ToPort: 8080
+[01/12/2021 11:00:01]: Security group django-security-group created!
+[01/12/2021 11:00:01]: Creating security group load-balancer...
+[01/12/2021 11:00:02]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 80, ToPort: 80
+[01/12/2021 11:00:03]: Security group load-balancer created!
+[01/12/2021 11:00:08]: Creating instance Postgres-f...
+[01/12/2021 11:00:42]: Instance Postgres-f created!
+[01/12/2021 11:00:42]: Database created with postgres!
+[01/12/2021 11:00:42]: Creating instance North-Virigina-f...
+[01/12/2021 11:01:31]: Sleep starting... (150)
+[01/12/2021 11:04:01]: Sleep ended
+[01/12/2021 11:04:02]: Instance North-Virigina-f created!
+[01/12/2021 11:04:07]: Creating AMI django-ami...
+[01/12/2021 11:08:43]: AMI django-ami created!
+[01/12/2021 11:08:43]: Deleting all instances (us-east-1)...
+[01/12/2021 11:09:14]: All instances deleted!
+[01/12/2021 11:09:15]: Creating target group load-balancer-target-group...
+[01/12/2021 11:09:16]: Target group load-balancer-target-group created
+[01/12/2021 11:09:16]: Creating loadbalancer load-balancer-north-viriginia
+[01/12/2021 11:12:05]: Loadbalancer load-balancer-north-viriginia created!
+[01/12/2021 11:12:05]: Creating launch_configuration launch configuration
+[01/12/2021 11:12:06]: Launch configuration launch_configuration created!
+[01/12/2021 11:12:06]: Creating autoscalling auto-scalling...
+[01/12/2021 11:12:08]: Autoscalling auto-scalling created!
+[01/12/2021 11:12:08]: Creating listener...
+[01/12/2021 11:12:08]: Listener created!
+[01/12/2021 11:19:23]: POST load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/
+[01/12/2021 11:21:42]: POST load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/
+[01/12/2021 11:22:07]: POST http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/
+[01/12/2021 11:24:14]: POST http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/
+[01/12/2021 11:24:15]: POST response <Response [400]>
+[01/12/2021 11:32:56]: POST http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/
+[01/12/2021 11:32:56]: POST response <Response [400]>
+[01/12/2021 11:33:58]: POST http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/
+[01/12/2021 11:33:59]: POST response <Response [400]>
+[01/12/2021 11:35:15]: POST http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/
+[01/12/2021 11:35:17]: POST response <Response [400]>
+[01/12/2021 11:38:44]: POST http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/
+[01/12/2021 11:38:45]: POST response {'groups': ['Invalid hyperlink - No URL match.']}
+[01/12/2021 11:43:21]: POST htpp://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/groups/
+[01/12/2021 11:44:22]: POST http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/groups/
+[01/12/2021 11:44:23]: POST response {'url': 'http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/groups/1/', 'name': 'grupo-test'}
+[01/12/2021 11:45:06]: POST http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/
+[01/12/2021 11:45:07]: POST response {'groups': ['Invalid hyperlink - No URL match.']}
+[01/12/2021 13:42:48]: POST http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/
+[01/12/2021 13:42:49]: POST response {'groups': ['Invalid hyperlink - No URL match.']}
+[01/12/2021 13:43:38]: POST http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/
+[01/12/2021 13:43:38]: POST response {'url': 'http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/users/3/', 'username': 'fernandofnicattife', 'email': 'fincattifefkd@gmail.com', 'groups': []}
+[01/12/2021 13:44:17]: POST http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/groups/
+[01/12/2021 13:44:17]: POST response {'url': 'http://load-balancer-north-viriginia-557983331.us-east-1.elb.amazonaws.com/groups/2/', 'name': 'test_grufsd'}

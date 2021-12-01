@@ -1,7 +1,7 @@
 #!/bin/bash
 cd home/ubuntu/
 sudo apt update -y
-git clone https://github.com/fernandocfbf/tasks.git
+git clone https://github.com/LaisNSilva/tasks.git
 cd tasks
 sed -i 's/node1/postgres_ip/g' ./portfolio/settings.py
 ./install.sh
