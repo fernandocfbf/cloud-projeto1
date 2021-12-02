@@ -68,8 +68,6 @@ delete_all_security_groups_for_aws(ohio_client)
 delete_all_security_groups_for_aws(north_virginia_client)
 time.sleep(5)
 
-
-
 # CREATING SECURITY GROUPS ---------------------------------------------
 postgres_protocols = read_command('protocols', 'database_security_group.txt', is_json=True)
 postgres_security_group = create_security_group_for_aws(
