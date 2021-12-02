@@ -8,10 +8,12 @@ from functions.instances.create_database import create_database_for_aws
 from functions.instances.delete_instance import delete_all_instances_for_aws
 from functions.load_balancer.create_load_balancer import create_load_balancer_for_aws
 from functions.load_balancer.delete_all_load_balancer import delete_all_load_balancer_for_aws
+from functions.policies.create_policy import create_policy_fow_aws
 from functions.security_groups.create_security_group import create_security_group_for_aws
 from functions.security_groups.delete_all_security_groups import delete_all_security_groups_for_aws
 from functions.ami.create_AMI import create_AMI_for_aws
 from functions.ami.delete_all_AMIs import delete_all_AMIs_for_aws
+from functions.target_groups.attach_to_load_balancer import attach_to_load_balancer_for_aws
 from functions.target_groups.create_target_group import create_target_group_for_aws
 from functions.target_groups.delete_target_group import delete_target_groups_for_aws
 from functions.launch_configuration.create_launch_configuration import create_launch_configuration_for_aws
@@ -163,6 +165,9 @@ create_autoscalling_for_aws(
    north_virginia_client,
    target_group)
 
+# ATTACH LOAD BALANCER ---------------------------------------------
+attach_to_load_balancer_for_aws(AT_GROUP_NAME, auto_scalling_client, target_group)
+
 # CREATING LISTENER ---------------------------------------------
 create_listener_for_aws(
    LT_PROTOCOL,
@@ -171,3 +176,15 @@ create_listener_for_aws(
    target_group,
    amazon_resource_name,
    load_balancer_client)
+
+# CREATING AUTOSCALLING POLICY ---------------------------------------------
+create_policy_fow_aws(
+   POLICY_NAME,
+   AT_GROUP_NAME,
+   POLICY_TYPE,
+   POLICY_TARGET_VALUE,
+   POLICY_METRIC_TYPE,
+   auto_scalling_client,
+   target_group,
+   amazon_resource_name
+)

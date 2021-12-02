@@ -1,17 +1,70 @@
-[01/12/2021 15:49:42]: Deleting all loadbalancers...
-[01/12/2021 15:49:43]: All loadbalancers deleted!
-[01/12/2021 15:49:48]: Deleting all autoscalling... (us-east-1)
-[01/12/2021 15:50:00]: Autoscalling us-east-1 deleted!
-[01/12/2021 15:50:05]: Deleting launch condiguration launch_configuration...
-[01/12/2021 15:50:05]: Launch condiguration launch_configuration deleted!
-[01/12/2021 15:50:11]: Deleting all images (us-east-1)...
-[01/12/2021 15:50:12]: All images deleted! (us-east-1)
-[01/12/2021 15:50:17]: There are no instances to delete! (us-east-1)
-[01/12/2021 15:50:29]: Deleting all instances (us-east-2)...
-[01/12/2021 15:51:00]: All instances deleted!
-[01/12/2021 15:51:05]: Deleting target group load-balancer-target-group...
-[01/12/2021 15:51:17]: Target group load-balancer-target-group deleted!
-[01/12/2021 15:51:22]: Deleting all security groups (us-east-2)...
-[01/12/2021 15:51:23]: All security groups deleted!
-[01/12/2021 15:51:23]: Deleting all security groups (us-east-1)...
-[01/12/2021 15:51:24]: All security groups deleted!
+[02/12/2021 15:36:00]: There are no loadlancers to delete!
+[02/12/2021 15:36:05]: Deleting all autoscalling... (us-east-1)
+[02/12/2021 15:36:22]: Deleting launch condiguration launch_configuration...
+[02/12/2021 15:36:23]: Launch configuration launch_configuration not found!
+[02/12/2021 15:36:29]: Deleting all images (us-east-1)...
+[02/12/2021 15:36:29]: All images deleted! (us-east-1)
+[02/12/2021 15:36:34]: There are no instances to delete! (us-east-1)
+[02/12/2021 15:36:46]: There are no instances to delete! (us-east-2)
+[02/12/2021 15:36:51]: Deleting target group load-balancer-target-group...
+[02/12/2021 15:36:52]: Target group load-balancer-target-group deleted!
+[02/12/2021 15:36:57]: Deleting all security groups (us-east-2)...
+[02/12/2021 15:36:57]: All security groups deleted!
+[02/12/2021 15:36:57]: Deleting all security groups (us-east-1)...
+[02/12/2021 15:36:58]: All security groups deleted!
+[02/12/2021 15:37:03]: Creating security group database...
+[02/12/2021 15:37:04]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 22, ToPort: 22
+[02/12/2021 15:37:04]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 5432, ToPort: 5432
+[02/12/2021 15:37:05]: Security group database created!
+[02/12/2021 15:37:05]: Creating security group django-security-group...
+[02/12/2021 15:37:06]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 22, ToPort: 22
+[02/12/2021 15:37:07]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 8080, ToPort: 8080
+[02/12/2021 15:37:07]: Security group django-security-group created!
+[02/12/2021 15:37:07]: Creating security group load-balancer...
+[02/12/2021 15:37:08]: Authorizing ingress - IPprotocol: tcp, CirdrIP: 0.0.0.0/0, FromPort: 80, ToPort: 80
+[02/12/2021 15:37:09]: Security group load-balancer created!
+[02/12/2021 15:37:14]: Creating instance Postgres-f...
+[02/12/2021 15:37:47]: Instance Postgres-f created!
+[02/12/2021 15:37:47]: Database created with postgres!
+[02/12/2021 15:37:47]: Creating instance North-Virigina-f...
+[02/12/2021 15:38:47]: Sleep starting... (150)
+[02/12/2021 15:41:17]: Sleep ended
+[02/12/2021 15:41:29]: Instance North-Virigina-f created!
+[02/12/2021 15:41:34]: Creating AMI django-ami...
+[02/12/2021 15:46:06]: AMI django-ami created!
+[02/12/2021 15:46:06]: Deleting all instances (us-east-1)...
+[02/12/2021 15:46:37]: All instances deleted!
+[02/12/2021 15:46:38]: Creating target group load-balancer-target-group...
+[02/12/2021 15:46:50]: Target group load-balancer-target-group created
+[02/12/2021 15:46:50]: Creating loadbalancer load-balancer-north-viriginia
+[02/12/2021 15:48:53]: Loadbalancer load-balancer-north-viriginia created!
+[02/12/2021 15:48:53]: Creating launch_configuration launch configuration
+[02/12/2021 15:49:06]: Launch configuration launch_configuration created!
+[02/12/2021 15:49:06]: Creating autoscalling auto-scalling...
+[02/12/2021 15:49:07]: Autoscalling auto-scalling created!
+[02/12/2021 15:49:07]: Attaching load balancer to target group...
+[02/12/2021 15:49:07]: Load balancer attached!
+[02/12/2021 15:49:07]: Creating listener...
+[02/12/2021 15:49:08]: Listener created!
+[02/12/2021 15:49:08]: Creating policy auto-scalling-policy...
+[02/12/2021 15:49:08]: Policy auto-scalling-policy created!
+[02/12/2021 15:51:59]: GET http://http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users
+[02/12/2021 15:52:27]: GET http://http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users/
+[02/12/2021 15:53:01]: GET http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users/
+[02/12/2021 15:53:13]: GET response {'count': 1, 'next': None, 'previous': None, 'results': [{'url': 'http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users/1/', 'username': 'cloud', 'email': 'cloud@a.com', 'groups': []}]}
+[02/12/2021 15:54:07]: POST http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users/
+[02/12/2021 15:54:08]: POST response {'url': 'http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users/2/', 'username': 'fernandofincatti', 'email': 'fincattifernando@gmail.com', 'groups': []}
+[02/12/2021 15:54:22]: GET http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users/
+[02/12/2021 15:54:23]: GET response {'count': 2, 'next': None, 'previous': None, 'results': [{'url': 'http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users/2/', 'username': 'fernandofincatti', 'email': 'fincattifernando@gmail.com', 'groups': []}, {'url': 'http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users/1/', 'username': 'cloud', 'email': 'cloud@a.com', 'groups': []}]}
+[02/12/2021 15:55:54]: POST http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/groups/
+[02/12/2021 15:56:06]: POST response {'url': 'http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/groups/1/', 'name': 'grupo-teste'}
+[02/12/2021 15:56:39]: GET http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/groups/
+[02/12/2021 15:56:40]: GET response {'count': 1, 'next': None, 'previous': None, 'results': [{'url': 'http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/groups/1/', 'name': 'grupo-teste'}]}
+[02/12/2021 15:56:51]: DELETE http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/groups/1
+[02/12/2021 15:56:52]: DELETE response <Response [204]>
+[02/12/2021 15:56:59]: GET http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/groups/
+[02/12/2021 15:57:00]: GET response {'count': 0, 'next': None, 'previous': None, 'results': []}
+[02/12/2021 15:57:14]: DELETE http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users/2
+[02/12/2021 15:57:15]: DELETE response <Response [204]>
+[02/12/2021 15:57:22]: GET http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users/
+[02/12/2021 15:57:23]: GET response {'count': 1, 'next': None, 'previous': None, 'results': [{'url': 'http://load-balancer-north-viriginia-441584554.us-east-1.elb.amazonaws.com/users/1/', 'username': 'cloud', 'email': 'cloud@a.com', 'groups': []}]}

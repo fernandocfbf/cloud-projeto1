@@ -41,3 +41,11 @@ LT_PROTOCOL = 'HTTP'
 LT_PORT = 80
 LT_DEFAULT_ACTIONS_TYPE = 'forward'
 
+# POLICY ---------------------------------------------
+POLICY_NAME = 'auto-scalling-policy'
+POLICY_TYPE = 'TargetTrackingScaling'
+POLICY_TARGET_VALUE = 50
+POLICY_METRIC_TYPE = 'ALBRequestCountPerTarget'
+
+
+
