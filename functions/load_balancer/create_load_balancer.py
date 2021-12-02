@@ -16,8 +16,8 @@ def create_load_balancer_for_aws(ec2, lb_client, load_balancer_name, security_gr
             )
             amazon_resource_name = load_balancer['LoadBalancers'][0]['LoadBalancerArn']
             waiter.wait(LoadBalancerArns=[amazon_resource_name])
-            create_log('Loadbalancer {0} created!'.format(load_balancer_name))
+            create_log('Loadbalancer {0} created!'.format(load_balancer_name), type='success')
             return load_balancer, amazon_resource_name
         except NameError as e:
-            create_log(e)
+            create_log(e, type='fail')
 

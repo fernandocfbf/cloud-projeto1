@@ -7,8 +7,8 @@ def delete_launch_configuration_for_aws(ec2, launch_name):
         launch_config_exists = check_launch_configuration_for_aws(launch_name, ec2)
         if launch_config_exists:
             ec2.delete_launch_configuration(LaunchConfigurationName=launch_name)
-            create_log('Launch condiguration {0} deleted!'.format(launch_name))
+            create_log('Launch condiguration {0} deleted!'.format(launch_name), type='success')
         else:
-            create_log('Launch configuration {0} not found!'.format(launch_name))
+            create_log('Launch configuration {0} not found!'.format(launch_name), type='warning')
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')

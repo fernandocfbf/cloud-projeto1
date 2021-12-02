@@ -22,7 +22,7 @@ def create_security_group_for_aws(group_name, region, description, tag_name, por
                 ToPort=protocol['ToPort'],
                 IpProtocol=protocol['protocol'])
         security_group.load()
-        create_log("Security group {0} created!".format(group_name))
+        create_log("Security group {0} created!".format(group_name), type='success')
         return security_group
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')

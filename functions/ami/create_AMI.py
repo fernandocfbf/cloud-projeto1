@@ -12,8 +12,8 @@ def create_AMI_for_aws(ec2, ami_name, instance_id, waiter):
             }]
         )
         waiter.wait(ImageIds=[ami['ImageId']])
-        create_log('AMI {0} created!'.format(ami_name))
+        create_log('AMI {0} created!'.format(ami_name), type='success')
         return ami, ami['ImageId']
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')
 

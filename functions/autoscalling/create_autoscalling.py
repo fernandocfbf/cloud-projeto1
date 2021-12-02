@@ -14,6 +14,6 @@ def create_autoscalling_for_aws(autoscalling_name, config_name, min_size, max_si
             TargetGroupARNs=[target_group_arns],
             AvailabilityZones=zones
         )
-        create_log('Autoscalling {0} created!'.format(autoscalling_name))
+        create_log('Autoscalling {0} created!'.format(autoscalling_name), type='success')
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')

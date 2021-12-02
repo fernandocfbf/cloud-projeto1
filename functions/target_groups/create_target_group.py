@@ -20,7 +20,7 @@ def create_target_group_for_aws(target_group_name,
             TargetType=target_type,
             VpcId=vpc_id
         )
-        create_log('Target group {0} created'.format(target_group_name))
+        create_log('Target group {0} created'.format(target_group_name), type='success')
         return target_group["TargetGroups"][0]["TargetGroupArn"]
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')

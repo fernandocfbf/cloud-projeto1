@@ -29,8 +29,8 @@ def create_instance_for_aws(instance_name, region, image_id, instance_type, secu
             time.sleep(duration)
             create_log('Sleep ended')
         instance[0].reload()
-        create_log("Instance {0} created!".format(instance_name))
+        create_log("Instance {0} created!".format(instance_name), type='success')
         return instance, instance[0].public_ip_address, instance[0].instance_id
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')
         return

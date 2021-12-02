@@ -10,6 +10,6 @@ def create_listener_for_aws(protocol, port, default_actions_type, target_group_a
             Port=port,
             DefaultActions=[{'Type': default_actions_type, 'TargetGroupArn': target_group_arn}]
         )
-        create_log('Listener created!')
+        create_log('Listener created!', type='success')
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')

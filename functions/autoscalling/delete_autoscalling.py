@@ -8,6 +8,7 @@ def delete_autoscalling_for_aws(autoscalling_name, client):
             AutoScalingGroupName=autoscalling_name,
             ForceDelete=True
         )
-        create_log('Autoscalling {0} deleted!'.format(client.meta.region_name))
+        create_log('Autoscalling {0} deleted!'.format(client.meta.region_name), type='success')
     except:
+        create_log('Autoscalling {0} not found!'.format(client.meta.region_name), type='warning')
         pass

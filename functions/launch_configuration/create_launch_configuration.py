@@ -10,6 +10,6 @@ def create_launch_configuration_for_aws(ec2, launch_name, image_id, security_gro
             InstanceType=instance_type,
             KeyName=key_name
         )
-        create_log('Launch configuration {0} created!'.format(launch_name))
+        create_log('Launch configuration {0} created!'.format(launch_name), type='success')
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')

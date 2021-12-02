@@ -7,6 +7,6 @@ def attach_to_load_balancer_for_aws(auto_scalling_name, ec2, target_group_arn):
             AutoScalingGroupName=auto_scalling_name,
             TargetGroupARNs=[target_group_arn]
         )
-        create_log('Load balancer attached!')
+        create_log('Load balancer attached!', type='success')
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')

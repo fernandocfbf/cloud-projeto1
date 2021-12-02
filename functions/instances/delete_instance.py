@@ -15,8 +15,8 @@ def delete_all_instances_for_aws(ec2, waiter):
             create_log("Deleting all instances ({0})...".format(ec2.meta.region_name))
             ec2.terminate_instances(InstanceIds=ids_to_delete)
             waiter.wait(InstanceIds=ids_to_delete)
-            create_log("All instances deleted!")
+            create_log("All instances deleted!", type='success' )
         else:
-            create_log("There are no instances to delete! ({0})".format(ec2.meta.region_name))
+            create_log("There are no instances to delete! ({0})".format(ec2.meta.region_name), type='warning')
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')

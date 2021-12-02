@@ -18,6 +18,6 @@ def create_policy_fow_aws(policy_name, auto_scalling_group, policy_type, target_
                 "TargetValue": target_value
             }
         )
-        create_log('Policy {0} created!'.format(policy_name))
+        create_log('Policy {0} created!'.format(policy_name), type='success')
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')

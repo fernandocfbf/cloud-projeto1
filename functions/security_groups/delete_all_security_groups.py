@@ -7,6 +7,6 @@ def delete_all_security_groups_for_aws(ec2):
         for security_group in current_security_groups["SecurityGroups"]:
             if security_group['GroupName'] != 'default':
                 ec2.delete_security_group(GroupId=security_group['GroupId'])
-        create_log('All security groups deleted!')
+        create_log('All security groups deleted!', type='success')
     except NameError as e:
-        create_log(e)
+        create_log(e, type='fail')
